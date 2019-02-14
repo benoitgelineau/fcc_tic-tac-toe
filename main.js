@@ -20,18 +20,11 @@
       this.aiScore = document.getElementById('machine-score');
     },
     bindEvents() {
-      // for (let button of this.buttons) {
-      //   button.addEventListener('click', this.chooseSign.bind(this));
-      //   button.addEventListener('click', this.closeStartModal.bind(this));
-      // }
       Array.from(this.buttons).forEach((button) => {
         button.addEventListener('click', this.chooseSign.bind(this));
         button.addEventListener('click', this.closeStartModal.bind(this));
       });
 
-      // for (let box of this.boxes) {
-      //   box.addEventListener('click', this.fillBox.bind(this));
-      // }
       Array.from(this.boxes).forEach((box) => {
         box.addEventListener('click', this.fillBox.bind(this));
       });
@@ -41,9 +34,6 @@
     initBoard() {
       this.board = [];
 
-      // for (let box of this.boxes) {
-      //   this.board.push(box.textContent);
-      // }
       Array.from(this.boxes).forEach((box) => {
         this.board.push(box.textContent);
       });
@@ -109,7 +99,7 @@
       let value = 0; // If none of the players won
 
       for (let i = 0; i < board.length; i += 3) { // Rows
-        if (board[i] === board[i + 1] && board[i + 1] === board[i + 2]) {
+        if (board[i] === board[i + 1] && board[i + 1] === board[i + 2]) {
           if (board[i] === this.ai) {
             value = 10;
           } else if (board[i] === this.human) {
@@ -140,11 +130,6 @@
       return value;
     },
     isMovesLeft(board) {
-      // for (let index of board) {
-      //   if (index === '') {
-      //     return true;
-      //   }
-      // }
       return board.some(index => index === '');
     },
     minimax(board, depth, isMax) {
@@ -248,9 +233,6 @@
       this.endModal.style.display = 'block';
     },
     closeEndModal() {
-      // for (let box of this.boxes) {
-      //   box.textContent = '';
-      // }
       Array.from(this.boxes).forEach(box => box.textContent = '');
       this.endModal.style.display = 'none';
 
